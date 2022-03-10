@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Chuyển đổi nhiệt độ</h2>
+<input type="text" id="doC" placeholder="Nhập nhiệt độ">
+<br>
+<button onclick="convertToF()">Đổi Sang F</button>
+<button onclick="convertToK()">Đổi sang K</button>
+<p id="ketqua"></p>
+<p id="kqK"></p>
+<script>
+    class Temperature{
+        constructor(temp) {
+            this.Celsius = temp;
+        }
+
+        toFahrenheit(){
+            return parseFloat(this.Celsius * 1.8 + 32).toFixed(2);
+        }
+
+        toKelvin(){
+            return parseInt(this.Celsius)  + 273.15;
+        }
+    }
+
+    function convertToF(){
+        let celsius = document.getElementById('doC').value;
+        let temperature = new Temperature(celsius);
+        let fahrenheit = temperature.toFahrenheit();
+        document.getElementById('ketqua').innerHTML = fahrenheit;
+    }
+
+    function convertToK(){
+        let celsius = document.getElementById('doC').value;
+        let temperature = new Temperature(celsius);
+        let kelvin = temperature.toKelvin();
+        document.getElementById('kqK').innerHTML = kelvin;
+    }
+</script>
+</body>
+</html>
